@@ -35,8 +35,8 @@ void demoBufferOverflowData() {
 	memset(passwd, 2, USER_INPUT_MAX_LENGTH);
 	printf("login as: ");
 	fflush(stdout);
-	//gets(userName); // use scanf("%s", userName); if gets fails with identifier not found
-	scanf("%s", userName);
+	gets(userName); // use scanf("%s", userName); if gets fails with identifier not found
+	//scanf("%s", userName);
 
 	// Get password
 	printf("%s@vulnerable.machine.com: ", userName);
@@ -70,7 +70,7 @@ void demoAdjacentMemoryOverflow(char* userName, char* password) {
 	// memcpy, memmove - if length to copy is computed via strlen(string)
 
 	char message[100];
-	char realPassword[] = "very secret password nbusr123";
+	const char realPassword[] = "very secret password nbusr123";
 	char buf[8];
 
 	// print some info about variables
